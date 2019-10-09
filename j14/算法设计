@@ -1,0 +1,21 @@
+
+
+input  Itertimes,tabu_list,
+output
+
+function tabusearch(Itertimes)
+    for i=1→Itertimes do:
+        tabu_list=空集；best=空集
+        AL,Ms←initial_generate(break_time,plan)
+
+        for j=1→移动次数:
+            while num_candidate<=candidate:
+                new_schedul,new_model,move_step=MOVE(AL,Ms)
+                fitness=FIT(new_solution,new_model)
+                fit=fit U fitness
+                if fitness<max(fit) and move_step not in tabu_list:
+                    schedul_best,model_best←new_schedul,new_model
+                    tabu_list=tabu_list U  move_step
+                end if
+                num_candidate+=1
+            end while
